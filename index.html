@@ -1,104 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multi-Source Entertainment RSS Feeds</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            max-width: 950px;
-            margin: 40px auto;
-            padding: 0 20px;
-            line-height: 1.6;
-            color: #333;
-        }
-        h1 { color: #d32f2f; }
-        h2 { color: #1976d2; margin-top: 35px; border-bottom: 2px solid #e0e0e0; padding-bottom: 5px; }
-        h3 { color: #333; margin-bottom: 5px; }
-        .box { background: #f4f4f9; border-left: 4px solid #d32f2f; padding: 15px; margin: 15px 0; border-radius: 4px; }
-        code { background: #e0e0e0; padding: 3px 6px; border-radius: 4px; word-break: break-all; font-size: 0.9em; }
-        .btn { display: inline-block; background: #d32f2f; color: white; padding: 8px 16px; text-decoration: none; border-radius: 4px; font-weight: bold; margin: 4px; font-size: 0.9em; }
-        .btn:hover { background: #b71c1c; }
-        .btn.blue { background: #1976d2; }
-        .btn.blue:hover { background: #1565c0; }
-        .btn.green { background: #388e3c; }
-        .btn.green:hover { background: #2e7d32; }
-        .feed-section { margin: 15px 0; padding: 12px; background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; }
-        .feed-section h3 { margin-top: 0; }
-        table { width: 100%; border-collapse: collapse; margin: 10px 0; }
-        th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid #eee; }
-        th { background: #f5f5f5; }
-        .url-cell { font-family: monospace; font-size: 0.85em; word-break: break-all; }
-        .meta { color: #666; font-size: 0.85em; margin-top: 40px; padding-top: 15px; border-top: 1px solid #eee; }
-    </style>
-</head>
-<body>
-    <h1>🎬 Multi-Source Entertainment RSS Feeds</h1>
-    <p>Separate RSS feeds for each <b>website</b>, <b>language</b>, and <b>category</b>. Updates every hour via GitHub Actions.</p>
-
-    <h2>📰 Times of India — Movies (per language)</h2>
-    <div class="feed-section">
-        <table>
-            <tr><th>Language</th><th>Feed URL</th><th>Open</th></tr>
-            <tr><td>Tamil</td><td class="url-cell">feed_toi_tamil.xml</td><td><a class="btn" href="feed_toi_tamil.xml" target="_blank">Open</a></td></tr>
-            <tr><td>Malayalam</td><td class="url-cell">feed_toi_malayalam.xml</td><td><a class="btn" href="feed_toi_malayalam.xml" target="_blank">Open</a></td></tr>
-            <tr><td>Hindi</td><td class="url-cell">feed_toi_hindi.xml</td><td><a class="btn" href="feed_toi_hindi.xml" target="_blank">Open</a></td></tr>
-            <tr><td>English</td><td class="url-cell">feed_toi_english.xml</td><td><a class="btn" href="feed_toi_english.xml" target="_blank">Open</a></td></tr>
-        </table>
-    </div>
-
-    <h2>📱 91Mobiles — OTT This Week (per language)</h2>
-    <div class="feed-section">
-        <table>
-            <tr><th>Language</th><th>Feed URL</th><th>Open</th></tr>
-            <tr><td>Tamil</td><td class="url-cell">feed_91mobiles_ott_tamil.xml</td><td><a class="btn blue" href="feed_91mobiles_ott_tamil.xml" target="_blank">Open</a></td></tr>
-            <tr><td>Malayalam</td><td class="url-cell">feed_91mobiles_ott_malayalam.xml</td><td><a class="btn blue" href="feed_91mobiles_ott_malayalam.xml" target="_blank">Open</a></td></tr>
-            <tr><td>Hindi</td><td class="url-cell">feed_91mobiles_ott_hindi.xml</td><td><a class="btn blue" href="feed_91mobiles_ott_hindi.xml" target="_blank">Open</a></td></tr>
-            <tr><td>English</td><td class="url-cell">feed_91mobiles_ott_english.xml</td><td><a class="btn blue" href="feed_91mobiles_ott_english.xml" target="_blank">Open</a></td></tr>
-        </table>
-    </div>
-
-    <h2>📱 91Mobiles — Web Series This Week (per language)</h2>
-    <div class="feed-section">
-        <table>
-            <tr><th>Language</th><th>Feed URL</th><th>Open</th></tr>
-            <tr><td>Tamil</td><td class="url-cell">feed_91mobiles_series_tamil.xml</td><td><a class="btn blue" href="feed_91mobiles_series_tamil.xml" target="_blank">Open</a></td></tr>
-            <tr><td>Malayalam</td><td class="url-cell">feed_91mobiles_series_malayalam.xml</td><td><a class="btn blue" href="feed_91mobiles_series_malayalam.xml" target="_blank">Open</a></td></tr>
-            <tr><td>Hindi</td><td class="url-cell">feed_91mobiles_series_hindi.xml</td><td><a class="btn blue" href="feed_91mobiles_series_hindi.xml" target="_blank">Open</a></td></tr>
-            <tr><td>English</td><td class="url-cell">feed_91mobiles_series_english.xml</td><td><a class="btn blue" href="feed_91mobiles_series_english.xml" target="_blank">Open</a></td></tr>
-        </table>
-    </div>
-
-    <h2>📥 1TamilMV — Latest Downloads</h2>
-    <div class="feed-section">
-        <p>First 25 movie titles from 1TamilMV.</p>
-        <a class="btn green" href="feed_1tamilmv.xml" target="_blank">Open 1TamilMV Feed</a>
-    </div>
-
-    <h2>📋 Complete Feed URL Reference</h2>
-    <div class="feed-section">
-        <table>
-            <tr><th>Feed Name</th><th>Filename</th></tr>
-            <tr><td>TOI Tamil Movies</td><td class="url-cell">feed_toi_tamil.xml</td></tr>
-            <tr><td>TOI Malayalam Movies</td><td class="url-cell">feed_toi_malayalam.xml</td></tr>
-            <tr><td>TOI Hindi Movies</td><td class="url-cell">feed_toi_hindi.xml</td></tr>
-            <tr><td>TOI English Movies</td><td class="url-cell">feed_toi_english.xml</td></tr>
-            <tr><td>91Mobiles Tamil OTT</td><td class="url-cell">feed_91mobiles_ott_tamil.xml</td></tr>
-            <tr><td>91Mobiles Malayalam OTT</td><td class="url-cell">feed_91mobiles_ott_malayalam.xml</td></tr>
-            <tr><td>91Mobiles Hindi OTT</td><td class="url-cell">feed_91mobiles_ott_hindi.xml</td></tr>
-            <tr><td>91Mobiles English OTT</td><td class="url-cell">feed_91mobiles_ott_english.xml</td></tr>
-            <tr><td>91Mobiles Tamil Series</td><td class="url-cell">feed_91mobiles_series_tamil.xml</td></tr>
-            <tr><td>91Mobiles Malayalam Series</td><td class="url-cell">feed_91mobiles_series_malayalam.xml</td></tr>
-            <tr><td>91Mobiles Hindi Series</td><td class="url-cell">feed_91mobiles_series_hindi.xml</td></tr>
-            <tr><td>91Mobiles English Series</td><td class="url-cell">feed_91mobiles_series_english.xml</td></tr>
-            <tr><td>1TamilMV Downloads</td><td class="url-cell">feed_1tamilmv.xml</td></tr>
-        </table>
-    </div>
-
-    <div class="meta">
-        <p>Sources: Times of India | 91Mobiles | 1TamilMV</p>
-        <p>Automated via GitHub Actions (hourly cron) &amp; served via GitHub Pages.</p>
-    </div>
-</body>
-</html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Entertainment RSS Feeds</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+background:#0f1117;color:#e0e0e0;line-height:1.6}
+.hd{background:linear-gradient(135deg,#1a1d28,#2a2d3a);padding:3rem 1rem;
+text-align:center;border-bottom:1px solid #2a2d3a}
+.hd h1{font-size:2rem;color:#fff;margin-bottom:.3rem}
+.hd p{color:#8b8d96}.hd .ts{color:#555;font-size:.8rem;margin-top:.5rem}
+.wrap{max-width:1000px;margin:0 auto;padding:2rem 1rem}
+section{margin-bottom:2.5rem}
+section h2{font-size:1.3rem;color:#fff;border-bottom:2px solid #2a2d3a;
+padding-bottom:.4rem;margin-bottom:.2rem}
+.sub{color:#8b8d96;font-size:.85rem;margin-bottom:1rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.8rem}
+.card{display:block;background:#1a1d28;border:1px solid #2a2d3a;border-radius:8px;
+padding:1rem;text-decoration:none;color:#e0e0e0;transition:.2s;text-align:center}
+.card:hover{background:#222531;border-color:#3a3d4a;transform:translateY(-2px)}
+.lang{font-size:1rem;font-weight:600;color:#6ea8fe;margin-bottom:.3rem}
+.ico{font-size:1.3rem;margin-bottom:.3rem}
+.fn{font-size:.7rem;color:#666;word-break:break-all}
+.ft{text-align:center;padding:1.5rem;color:#444;font-size:.8rem;border-top:1px solid #2a2d3a}
+.ft a{color:#6ea8fe;text-decoration:none}
+</style></head><body>
+<div class="hd"><h1>🎬 Entertainment RSS Feeds</h1>
+<p>Auto-updated feeds from Times of India, 91Mobiles &amp; 1TamilMV</p>
+<p class="ts">Last updated: 2026-09-29 12:06 UTC</p></div>
+<div class="wrap">
+<section><h2>Times of India — Movies</h2><p class="sub">Movie reviews per language</p><div class="grid"><a href="feed_toi_movies_bengali.xml" class="card"><div class="lang">Bengali</div><div class="ico">📡</div><div class="fn">feed_toi_movies_bengali.xml</div></a><a href="feed_toi_movies_english.xml" class="card"><div class="lang">English</div><div class="ico">📡</div><div class="fn">feed_toi_movies_english.xml</div></a><a href="feed_toi_movies_hindi.xml" class="card"><div class="lang">Hindi</div><div class="ico">📡</div><div class="fn">feed_toi_movies_hindi.xml</div></a><a href="feed_toi_movies_kannada.xml" class="card"><div class="lang">Kannada</div><div class="ico">📡</div><div class="fn">feed_toi_movies_kannada.xml</div></a><a href="feed_toi_movies_malayalam.xml" class="card"><div class="lang">Malayalam</div><div class="ico">📡</div><div class="fn">feed_toi_movies_malayalam.xml</div></a><a href="feed_toi_movies_marathi.xml" class="card"><div class="lang">Marathi</div><div class="ico">📡</div><div class="fn">feed_toi_movies_marathi.xml</div></a><a href="feed_toi_movies_tamil.xml" class="card"><div class="lang">Tamil</div><div class="ico">📡</div><div class="fn">feed_toi_movies_tamil.xml</div></a><a href="feed_toi_movies_telugu.xml" class="card"><div class="lang">Telugu</div><div class="ico">📡</div><div class="fn">feed_toi_movies_telugu.xml</div></a></div></section>
+<section><h2>91Mobiles — OTT Releases</h2><p class="sub">OTT releases this week per language</p><div class="grid"><a href="feed_91mobiles_ott_english.xml" class="card"><div class="lang">English</div><div class="ico">📡</div><div class="fn">feed_91mobiles_ott_english.xml</div></a><a href="feed_91mobiles_ott_hindi.xml" class="card"><div class="lang">Hindi</div><div class="ico">📡</div><div class="fn">feed_91mobiles_ott_hindi.xml</div></a><a href="feed_91mobiles_ott_kannada.xml" class="card"><div class="lang">Kannada</div><div class="ico">📡</div><div class="fn">feed_91mobiles_ott_kannada.xml</div></a><a href="feed_91mobiles_ott_malayalam.xml" class="card"><div class="lang">Malayalam</div><div class="ico">📡</div><div class="fn">feed_91mobiles_ott_malayalam.xml</div></a><a href="feed_91mobiles_ott_tamil.xml" class="card"><div class="lang">Tamil</div><div class="ico">📡</div><div class="fn">feed_91mobiles_ott_tamil.xml</div></a><a href="feed_91mobiles_ott_telugu.xml" class="card"><div class="lang">Telugu</div><div class="ico">📡</div><div class="fn">feed_91mobiles_ott_telugu.xml</div></a></div></section>
+<section><h2>91Mobiles — Web Series</h2><p class="sub">Web series from last 7 days per language</p><div class="grid"><a href="feed_91mobiles_series_english.xml" class="card"><div class="lang">English</div><div class="ico">📡</div><div class="fn">feed_91mobiles_series_english.xml</div></a><a href="feed_91mobiles_series_hindi.xml" class="card"><div class="lang">Hindi</div><div class="ico">📡</div><div class="fn">feed_91mobiles_series_hindi.xml</div></a><a href="feed_91mobiles_series_kannada.xml" class="card"><div class="lang">Kannada</div><div class="ico">📡</div><div class="fn">feed_91mobiles_series_kannada.xml</div></a><a href="feed_91mobiles_series_malayalam.xml" class="card"><div class="lang">Malayalam</div><div class="ico">📡</div><div class="fn">feed_91mobiles_series_malayalam.xml</div></a><a href="feed_91mobiles_series_tamil.xml" class="card"><div class="lang">Tamil</div><div class="ico">📡</div><div class="fn">feed_91mobiles_series_tamil.xml</div></a><a href="feed_91mobiles_series_telugu.xml" class="card"><div class="lang">Telugu</div><div class="ico">📡</div><div class="fn">feed_91mobiles_series_telugu.xml</div></a></div></section>
+<section><h2>1TamilMV — Latest</h2><p class="sub">Latest releases from 1TamilMV</p><div class="grid"><a href="feed_1tamilmv.xml" class="card"><div class="lang">All</div><div class="ico">📡</div><div class="fn">feed_1tamilmv.xml</div></a></div></section>
+</div>
+<div class="ft"><p>Feeds auto-update hourly via GitHub Actions</p>
+<p><a href="https://www.rssboard.org/rss-specification">RSS 2.0</a></p></div>
+</body></html>
