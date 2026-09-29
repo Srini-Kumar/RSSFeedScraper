@@ -447,6 +447,7 @@ def build_rss(items, feed_title, feed_filename):
             if item.get("link"):
                 fe.link(href=item["link"])
 
+            # Format description to include image at the beginning, similar to TOI format
             safe_title = html_escape(item["title"])
             safe_image = html_escape(item.get("image", ""))
             safe_rating = html_escape(str(item.get("rating", "N/A")))
@@ -461,12 +462,10 @@ def build_rss(items, feed_title, feed_filename):
 
             image_html = ""
             if item.get("image"):
-                image_html = f'<p><img src="{safe_image}" alt="{safe_title}" style="max-width:300px;height:auto;border-radius:8px;display:block;margin:10px 0;"/></p>'
-
-            desc_html = f'<p style="font-size:13px;color:#555;">{safe_desc}</p>' if safe_desc else ""
+                image_html = f'&lt;img border="0" hspace="10" align="left" style="margin-top:3px;margin-right:5px;" src="{safe_image}" /&gt;'
 
             content_html = (
-                f"<div>{image_html}<ul>"
+                f"<ul>"
                 f"<li><b>Title:</b> {safe_title}</li>"
                 f"<li><b>Language:</b> {safe_lang}</li>"
                 f"<li><b>Source:</b> {safe_source}</li>"
@@ -475,13 +474,20 @@ def build_rss(items, feed_title, feed_filename):
                 f"<li><b>Genre:</b> {safe_genre}</li>"
                 f"<li><b>Duration:</b> {safe_duration}</li>"
                 f"<li><b>Release Date:</b> {safe_release}</li>"
-                f"</ul>{desc_html}"
-                f'<p><a href="{safe_link}">View Source &#8594;</a></p>'
-                f"</div>"
+                f"</ul>"
             )
+            if safe_desc:
+                content_html += f"<p>{safe_desc}</p>"
 
-            fe.description(f"{item['title']} - {safe_lang} - {safe_cat}")
-            fe.content(content_html, type="html")
+            # Combine image and content for the description tag
+            full_description = f"{image_html}<![CDATA[{content_html}]]>"
+            
+            fe.description(full_description)
+            
+            # Add enclosure for image if available (helps RSS readers display thumbnails)
+            if item.get("image"):
+                fe.enclosure(url=item["image"], type="image/jpeg")
+                
             fe.pubDate(datetime.now(timezone.utc))
         except Exception as e:
             print(f"[WARN] Entry error: {e}", file=sys.stderr)
@@ -492,7 +498,6 @@ def build_rss(items, feed_title, feed_filename):
         print(f"[OK] {feed_filename} ({len(seen)} items)")
     except Exception as e:
         print(f"[ERROR] {feed_filename}: {e}", file=sys.stderr)
-
 
 # ──────────────────────────────────────────────────────────
 # MAIN — generates ONLY separate feeds per source/language/category
